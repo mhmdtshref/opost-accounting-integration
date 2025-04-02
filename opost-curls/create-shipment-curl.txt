@@ -1,0 +1,206 @@
+curl ^"https://o.opost.ps/w/resources/shipments?business_id=5726^" ^
+  -H ^"accept: application/json, text/plain, */*^" ^
+  -H ^"accept-language: en-US,en;q=0.9^" ^
+  -H ^"app-language: ar^" ^
+  -H ^"content-type: multipart/form-data; boundary=----WebKitFormBoundary0BuduVXaDU8gVRN7^" ^
+  -b ^"_ga=GA1.1.223659544.1700401292; _ga_XEFGB5Q2FK=GS1.1.1743588702.37.1.1743588704.0.0.0; _ga_TBZHBDKWRB=GS1.1.1743588702.4.1.1743588938.0.0.0; XSRF-TOKEN=eyJpdiI6IlVUTXY1aFNFNG9OckIrbmFRS0JFdEE9PSIsInZhbHVlIjoiUDJXWk5SUStVcE5lVVVQTExtNEZmb2taUmVCbE5Ea05HdXJYcXMxK2NXQk11UGVWbXZvU1hlVGdpaFB4YWNYOUVBbWg4RzgyTldIbU5qbnZmaE9wNktLSkUydEZyRWVVY1kvL0lIa1FSVHM4RmFCblhXaTFxbVdLL1R4enZKRnEiLCJtYWMiOiIzMDkwYmNjZTU2YmFmZmNjNzhhZGI0ZWE2ZTAxYzQ1ZDdiOGQzMTBkMWM4YTkwODBhNTFmODIzZDQ4MjdjYmQ0IiwidGFnIjoiIn0^%^3D; laravel_session=eyJpdiI6Ik51eS9zZ1N2QU0rUEpPTnVwZ0FJaXc9PSIsInZhbHVlIjoiQ21ZS2E1RitGa05qdkJKWEZQNzc4TkhHa3Z1MllzZDBWNjF3amhCU3UrOGNiQ3F3WGwyWndrYitiTlMxMlpxM1FhWDZvRXNmRThCSmFveFJ0WWZuSVVUcWNHYUZWWTNNaW9sRkxQTEt3UkhnZVdVUEl5aldsTXdMNkNQUTlRZ0siLCJtYWMiOiJkYzYwMjliYjZiNWFmMDJkZDU0NGQ1Y2EwZDlkOGZiZjg0OGFmNDVkZDBmYjBmMzIyZjFhMzBhNDJlMTdiZDM3IiwidGFnIjoiIn0^%^3D^" ^
+  -H ^"origin: https://o.opost.ps^" ^
+  -H ^"priority: u=1, i^" ^
+  -H ^"referer: https://o.opost.ps/logistics/resources/shipments/create^" ^
+  -H ^"sec-ch-ua: ^\^"Chromium^\^";v=^\^"134^\^", ^\^"Not:A-Brand^\^";v=^\^"24^\^", ^\^"Google Chrome^\^";v=^\^"134^\^"^" ^
+  -H ^"sec-ch-ua-mobile: ?0^" ^
+  -H ^"sec-ch-ua-platform: ^\^"Windows^\^"^" ^
+  -H ^"sec-fetch-dest: empty^" ^
+  -H ^"sec-fetch-mode: cors^" ^
+  -H ^"sec-fetch-site: same-origin^" ^
+  -H ^"user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36^" ^
+  -H ^"x-csrf-token: A8KimyDTNkXTXM9sh8rSthtId38T4u8fhraBPLfM^" ^
+  -H ^"x-requested-with: XMLHttpRequest^" ^
+  -H ^"x-xsrf-token: eyJpdiI6IlVUTXY1aFNFNG9OckIrbmFRS0JFdEE9PSIsInZhbHVlIjoiUDJXWk5SUStVcE5lVVVQTExtNEZmb2taUmVCbE5Ea05HdXJYcXMxK2NXQk11UGVWbXZvU1hlVGdpaFB4YWNYOUVBbWg4RzgyTldIbU5qbnZmaE9wNktLSkUydEZyRWVVY1kvL0lIa1FSVHM4RmFCblhXaTFxbVdLL1R4enZKRnEiLCJtYWMiOiIzMDkwYmNjZTU2YmFmZmNjNzhhZGI0ZWE2ZTAxYzQ1ZDdiOGQzMTBkMWM4YTkwODBhNTFmODIzZDQ4MjdjYmQ0IiwidGFnIjoiIn0=^" ^
+  --data-raw ^"------WebKitFormBoundary0BuduVXaDU8gVRN7^
+
+Content-Disposition: form-data; name=^\^"business^\^"^
+
+^
+
+5726^
+
+------WebKitFormBoundary0BuduVXaDU8gVRN7^
+
+Content-Disposition: form-data; name=^\^"business_address^\^"^
+
+^
+
+5788^
+
+------WebKitFormBoundary0BuduVXaDU8gVRN7^
+
+Content-Disposition: form-data; name=^\^"consignee^[name^]^\^"^
+
+^
+
+^م^ر^ا^م ^ش^ل^ب^ي^
+
+------WebKitFormBoundary0BuduVXaDU8gVRN7^
+
+Content-Disposition: form-data; name=^\^"consignee^[phone^]^\^"^
+
+^
+
+0532040842^
+
+------WebKitFormBoundary0BuduVXaDU8gVRN7^
+
+Content-Disposition: form-data; name=^\^"consignee^[city^]^\^"^
+
+^
+
+12^
+
+------WebKitFormBoundary0BuduVXaDU8gVRN7^
+
+Content-Disposition: form-data; name=^\^"consignee^[area^]^\^"^
+
+^
+
+623^
+
+------WebKitFormBoundary0BuduVXaDU8gVRN7^
+
+Content-Disposition: form-data; name=^\^"consignee^[address^]^\^"^
+
+^
+
+^ب^ج^ا^ن^ب ^ا^ل^ف^ح^ا^م ^ل^ق^ط^ع ^ا^ل^س^ي^ا^ر^ا^ت^
+
+------WebKitFormBoundary0BuduVXaDU8gVRN7^
+
+Content-Disposition: form-data; name=^\^"consignee^[is_foreign^]^\^"^
+
+^
+
+false^
+
+------WebKitFormBoundary0BuduVXaDU8gVRN7^
+
+Content-Disposition: form-data; name=^\^"cod_amount^\^"^
+
+^
+
+20^
+
+------WebKitFormBoundary0BuduVXaDU8gVRN7^
+
+Content-Disposition: form-data; name=^\^"consignee^[is_foreign^]^\^"^
+
+^
+
+false^
+
+------WebKitFormBoundary0BuduVXaDU8gVRN7^
+
+Content-Disposition: form-data; name=^\^"recipient_can_try_product^\^"^
+
+^
+
+false^
+
+------WebKitFormBoundary0BuduVXaDU8gVRN7^
+
+Content-Disposition: form-data; name=^\^"has_return^\^"^
+
+^
+
+false^
+
+------WebKitFormBoundary0BuduVXaDU8gVRN7^
+
+Content-Disposition: form-data; name=^\^"return_notes^\^"^
+
+^
+
+^
+
+------WebKitFormBoundary0BuduVXaDU8gVRN7^
+
+Content-Disposition: form-data; name=^\^"box_dimensions^\^"^
+
+^
+
+false^
+
+------WebKitFormBoundary0BuduVXaDU8gVRN7^
+
+Content-Disposition: form-data; name=^\^"width^\^"^
+
+^
+
+40^
+
+------WebKitFormBoundary0BuduVXaDU8gVRN7^
+
+Content-Disposition: form-data; name=^\^"height^\^"^
+
+^
+
+40^
+
+------WebKitFormBoundary0BuduVXaDU8gVRN7^
+
+Content-Disposition: form-data; name=^\^"length^\^"^
+
+^
+
+40^
+
+------WebKitFormBoundary0BuduVXaDU8gVRN7^
+
+Content-Disposition: form-data; name=^\^"shipment_types^[0^]^[id^]^\^"^
+
+^
+
+16^
+
+------WebKitFormBoundary0BuduVXaDU8gVRN7^
+
+Content-Disposition: form-data; name=^\^"shipment_types^[0^]^[name^]^\^"^
+
+^
+
+^ن^ث^ر^ي^ا^ت^
+
+------WebKitFormBoundary0BuduVXaDU8gVRN7^
+
+Content-Disposition: form-data; name=^\^"quantity^\^"^
+
+^
+
+1^
+
+------WebKitFormBoundary0BuduVXaDU8gVRN7^
+
+Content-Disposition: form-data; name=^\^"related_tracking_number^\^"^
+
+^
+
+^
+
+------WebKitFormBoundary0BuduVXaDU8gVRN7^
+
+Content-Disposition: form-data; name=^\^"items_description^\^"^
+
+^
+
+^ت^ج^ر^ب^ة^
+
+------WebKitFormBoundary0BuduVXaDU8gVRN7^
+
+Content-Disposition: form-data; name=^\^"notes^\^"^
+
+^
+
+^ت^ج^ر^ب^ة^
+
+------WebKitFormBoundary0BuduVXaDU8gVRN7--^
+
+^"

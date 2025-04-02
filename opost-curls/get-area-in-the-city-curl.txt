@@ -1,0 +1,17 @@
+curl ^"https://o.opost.ps/w/resources/related/consignees/area?limit=50^&chained=city^&chain_id=3^&business_id=5726^" ^
+  -H ^"accept: application/json, text/plain, */*^" ^
+  -H ^"accept-language: en-US,en;q=0.9^" ^
+  -H ^"app-language: ar^" ^
+  -b ^"_ga=GA1.1.223659544.1700401292; _ga_XEFGB5Q2FK=GS1.1.1743588702.37.1.1743588704.0.0.0; _ga_TBZHBDKWRB=GS1.1.1743588702.4.1.1743589320.0.0.0; XSRF-TOKEN=eyJpdiI6ImJleUN3VllyNUxIQWJZWUtQYWNQcGc9PSIsInZhbHVlIjoiUDJBcWNQRDRVZmN1ci9QeUd2MVZMYlpMY2xQbloxWnd3dEI1eWZEaU8rSnZ2dHdiRDNkdDRvb0tadkhRV2dDVGQ4RUhXY01UTW5ucmJJNDJuR0I5dm9sbVdFMlNCZ3Z6OGZPMG5yR2w3UzVpS1RFNzdSQmIvSjZOTThpMkQ0aHMiLCJtYWMiOiJhYWNkNzFkZDNiNzU2YThhYzE5OTExYWFmMjBkZTQ1NDc1NjYzMDlhYmY2ZTEwNWNkOWU2ZTE5MjIzYThhZTliIiwidGFnIjoiIn0^%^3D; laravel_session=eyJpdiI6InVJaTZBSVk5Sk9QS0ZEMU10cUZvQnc9PSIsInZhbHVlIjoiRVVETFd4TlAvRUNxZWpOR3pFeDliYTByeGVzOXBCRTBlL0lhR2JnWi9WM25pNHpFbE9iVGNWK2htVUM0OEFDL2RWVFRMVWQ2c2o2dThFK1FrVGl6OTdJUmN2K0xoTlF6d0VCbE9pK0RHeEZ1RHRsbHA5NlJBQlVydXNJc0E2T3AiLCJtYWMiOiJiNmM1NTc3Y2ViMTExNjY2ZTZkNGViMjJkOTAwM2Q1NzA1YjI2MmI4NmVlYjE5MjBmMzQxOTY3Y2M0YjY0MTYyIiwidGFnIjoiIn0^%^3D^" ^
+  -H ^"priority: u=1, i^" ^
+  -H ^"referer: https://o.opost.ps/logistics/resources/shipments/create^" ^
+  -H ^"sec-ch-ua: ^\^"Chromium^\^";v=^\^"134^\^", ^\^"Not:A-Brand^\^";v=^\^"24^\^", ^\^"Google Chrome^\^";v=^\^"134^\^"^" ^
+  -H ^"sec-ch-ua-mobile: ?0^" ^
+  -H ^"sec-ch-ua-platform: ^\^"Windows^\^"^" ^
+  -H ^"sec-fetch-dest: empty^" ^
+  -H ^"sec-fetch-mode: cors^" ^
+  -H ^"sec-fetch-site: same-origin^" ^
+  -H ^"user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36^" ^
+  -H ^"x-csrf-token: A8KimyDTNkXTXM9sh8rSthtId38T4u8fhraBPLfM^" ^
+  -H ^"x-requested-with: XMLHttpRequest^" ^
+  -H ^"x-xsrf-token: eyJpdiI6ImJleUN3VllyNUxIQWJZWUtQYWNQcGc9PSIsInZhbHVlIjoiUDJBcWNQRDRVZmN1ci9QeUd2MVZMYlpMY2xQbloxWnd3dEI1eWZEaU8rSnZ2dHdiRDNkdDRvb0tadkhRV2dDVGQ4RUhXY01UTW5ucmJJNDJuR0I5dm9sbVdFMlNCZ3Z6OGZPMG5yR2w3UzVpS1RFNzdSQmIvSjZOTThpMkQ0aHMiLCJtYWMiOiJhYWNkNzFkZDNiNzU2YThhYzE5OTExYWFmMjBkZTQ1NDc1NjYzMDlhYmY2ZTEwNWNkOWU2ZTE5MjIzYThhZTliIiwidGFnIjoiIn0=^"

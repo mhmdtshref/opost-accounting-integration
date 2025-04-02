@@ -1,0 +1,38 @@
+curl ^"https://o.opost.ps/w/resources/shipments/actions/cancel?business_id=5726^" ^
+  -H ^"accept: application/json, text/plain, */*^" ^
+  -H ^"accept-language: en-US,en;q=0.9^" ^
+  -H ^"app-language: ar^" ^
+  -H ^"content-type: multipart/form-data; boundary=----WebKitFormBoundarydIbukY8U7kg3yzwX^" ^
+  -b ^"_ga=GA1.1.223659544.1700401292; _ga_XEFGB5Q2FK=GS1.1.1743588702.37.1.1743588704.0.0.0; _ga_TBZHBDKWRB=GS1.1.1743588702.4.1.1743589186.0.0.0; XSRF-TOKEN=eyJpdiI6Ik0yTFZ4bmtjSFY4MmREMTZ3OUpLaVE9PSIsInZhbHVlIjoiZ1JINTk3Z2k1c2JhSTVYdlc5VkwrbVowdmZwWmw3RUtTa3lMUUloQm9CK0NaeU8wQVJ6QUphT1JWSkZJcWh3bVE5YjMyd1AwdDh0dDVJL09mM1hSckNsOWhyVVZpVVFTT1hRc2pXdkF1eDlyRFBib2x0aFdXL0kxYlVZdTQzeXgiLCJtYWMiOiI3YzkxZTAwMDVlMDFlNzU1ZmJmNzc2MzQ5ODViYTE4OTRiZGY5ZDJjMzA4NDAwYzk2OGM4NGI4YzlkYTBkOTE0IiwidGFnIjoiIn0^%^3D; laravel_session=eyJpdiI6ImdWNTVIdHhFcHBydCtxeFcveHI0aGc9PSIsInZhbHVlIjoidWZrWnBKUTVtRTFYU2luNUVmdWNIdHM1ejd1QnRYa1dKczVYR2lsYmZIY2dvcFRsMDhhbUU5U3E3OWhRUHdGcU9GZ3dib0NTSjBnWjVxc2JCWW16TGh2NFA3YkF1dDBjSmhHYlZTZGI1c3c0cFNlNWtuOHlhblVxczlaU0srNVUiLCJtYWMiOiIwNWRjOWM1MTlkNmU2MjZkMDdiNWE2YjYwYWIyNGM3NDZhMTEzNTA3Yjg3ZWVmYjA4ZDFiNDc3YzY4MDA0MDI4IiwidGFnIjoiIn0^%^3D^" ^
+  -H ^"origin: https://o.opost.ps^" ^
+  -H ^"priority: u=1, i^" ^
+  -H ^"referer: https://o.opost.ps/logistics/resources/shipments/filter/draft^" ^
+  -H ^"sec-ch-ua: ^\^"Chromium^\^";v=^\^"134^\^", ^\^"Not:A-Brand^\^";v=^\^"24^\^", ^\^"Google Chrome^\^";v=^\^"134^\^"^" ^
+  -H ^"sec-ch-ua-mobile: ?0^" ^
+  -H ^"sec-ch-ua-platform: ^\^"Windows^\^"^" ^
+  -H ^"sec-fetch-dest: empty^" ^
+  -H ^"sec-fetch-mode: cors^" ^
+  -H ^"sec-fetch-site: same-origin^" ^
+  -H ^"user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36^" ^
+  -H ^"x-csrf-token: A8KimyDTNkXTXM9sh8rSthtId38T4u8fhraBPLfM^" ^
+  -H ^"x-requested-with: XMLHttpRequest^" ^
+  -H ^"x-xsrf-token: eyJpdiI6Ik0yTFZ4bmtjSFY4MmREMTZ3OUpLaVE9PSIsInZhbHVlIjoiZ1JINTk3Z2k1c2JhSTVYdlc5VkwrbVowdmZwWmw3RUtTa3lMUUloQm9CK0NaeU8wQVJ6QUphT1JWSkZJcWh3bVE5YjMyd1AwdDh0dDVJL09mM1hSckNsOWhyVVZpVVFTT1hRc2pXdkF1eDlyRFBib2x0aFdXL0kxYlVZdTQzeXgiLCJtYWMiOiI3YzkxZTAwMDVlMDFlNzU1ZmJmNzc2MzQ5ODViYTE4OTRiZGY5ZDJjMzA4NDAwYzk2OGM4NGI4YzlkYTBkOTE0IiwidGFnIjoiIn0=^" ^
+  --data-raw ^"------WebKitFormBoundarydIbukY8U7kg3yzwX^
+
+Content-Disposition: form-data; name=^\^"notes^\^"^
+
+^
+
+^ت^ج^ر^ب^ة^
+
+------WebKitFormBoundarydIbukY8U7kg3yzwX^
+
+Content-Disposition: form-data; name=^\^"selected_ids^[^]^\^"^
+
+^
+
+5069796^
+
+------WebKitFormBoundarydIbukY8U7kg3yzwX--^
+
+^"
