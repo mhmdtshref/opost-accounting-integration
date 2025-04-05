@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 
 import { Box, Button, Chip, FormControl, InputLabel, MenuItem, Select, TextField } from "@mui/material";
 import axios from "axios";
+import { ImageUploader } from "../image-uploader";
 
 export const ProductForm = ({ product, action }) => {
     const router = useRouter();
@@ -107,9 +108,9 @@ export const ProductForm = ({ product, action }) => {
                 <TextField name='sellPrice' type='number' label="Sell Price" variant="outlined" fullWidth onChange={handleChange} />
             </Box>
             <Box pt={2}>
-                <TextField name='imageUrl' label="Image URL" variant="outlined" fullWidth onChange={handleChange} />
+                <ImageUploader name={'imageUrl'} title='Image' value={formData.imageUrl} onChange={(value) => setFormData({ ...formData, imageUrl: value })} />
             </Box>
-            <Box pt={2} display='flex' justifyContent='flex-end'>
+            <Box pt={4} display='flex' justifyContent='flex-end' gap={2}>
                 <Button variant="contained" color="primary" onClick={createAndViewProducts}>Create & View Prodcuts</Button>
                 <Button variant="contained" color="primary" onClick={createAndAddNew}>Create & Add New</Button>
             </Box>

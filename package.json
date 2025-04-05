@@ -21,16 +21,20 @@
     "@mui/lab": "6.0.0-beta.19",
     "@mui/material": "6.2.1",
     "@mui/material-nextjs": "6.2.1",
+    "aws-sdk": "^2.1692.0",
     "axios": "^1.8.1",
     "classnames": "2.5.1",
+    "mdi-material-ui": "^7.9.4",
     "mongoose": "^8.11.0",
     "next": "15.1.2",
     "react": "18.3.1",
     "react-colorful": "5.6.1",
     "react-dom": "18.3.1",
+    "react-hot-toast": "^2.5.2",
     "react-perfect-scrollbar": "1.5.8",
     "react-use": "17.6.0",
-    "server-only": "0.0.1"
+    "server-only": "0.0.1",
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "@iconify/json": "2.2.286",
