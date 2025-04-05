@@ -16,7 +16,7 @@ export const ProductSearch = ({ products: prods, selectable = false, setSelected
     const [search, setSearch] = useState('');
 
     useEffect(() => {
-        if (!products) {
+        if (!prods) {
             axios.get(`/api/products?search=${search}`)
             .then(productsResponse => {
                 setProducts(productsResponse.data.products || [])
