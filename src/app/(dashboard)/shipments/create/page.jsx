@@ -16,13 +16,11 @@ const CreateProductPage = () => {
     const createShipment = async (shipment) => {
         axios.post('/api/shipments', shipment)
             .then(res => {
-                console.log('res:', res);
                 router.push('/shipments');
             })
             .catch(err => {
                 console.log('err:', err);
             });
-
     }
 
     return <Card sx={{ padding: 2, margin: 2 }}>
