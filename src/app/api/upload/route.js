@@ -1,6 +1,7 @@
 
-import { v4 as uuidv4 } from 'uuid';
 import { NextResponse } from "next/server";
+
+import { v4 as uuidv4 } from 'uuid';
 import { S3 } from "aws-sdk";
 
 export const POST = async (request) => {
@@ -10,6 +11,7 @@ export const POST = async (request) => {
 
     const bytes = await file.arrayBuffer();
     const buffer = Buffer.from(bytes);
+
     // const filedata = new Blob([buffer], { type: file.type });
     const filename = file.name || `file-${uuidv4()}`;
     const filetype = file.type || "application/octet-stream";
@@ -36,6 +38,7 @@ export const POST = async (request) => {
     return NextResponse.json({ url: uploadResult.Location });
   } catch (error) {
     console.error("Error uploading file:", error);
-    return NextResponse.json({ message: "File upload failed" }, { status: 500 });
+    
+return NextResponse.json({ message: "File upload failed" }, { status: 500 });
   }
 }

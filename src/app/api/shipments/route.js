@@ -1,4 +1,5 @@
 import axios from "axios";
+
 import { dbConnect } from "../../../../lib/db-connect";
 import { Shipment } from "../../../../models/shipment";
 import { Product } from "../../../../models/product";
@@ -77,9 +78,12 @@ export const POST = async (request) => {
         } = data;
 
         const products = await Product.find({ _id: { $in: content.map(c => c.productId) } }).select('_id name')
+
         const contentString = content.map(c => {
             const product = products.find(p => p._id.toString() === c.productId);
-            return `name: ${product.name} | size: ${c.size} | color: ${c.color}\n`;
+
+            
+return `name: ${product.name} | size: ${c.size} | color: ${c.color}\n`;
         });
 
         const createShipmentResponse = await axios.post(`${process.env.OPOST_API_URL}/resources/shipments`, {
@@ -117,6 +121,7 @@ export const POST = async (request) => {
                 'Content-Type': 'application/json'
             }
         });
+
         console.log('\n\n\n\ncreateShipmentResponse:', createShipmentResponse.data.id, '\n\n\n\n');
         const externalId = `${createShipmentResponse.data.id}`
 
@@ -133,7 +138,8 @@ export const POST = async (request) => {
         });
     } catch (err) {
         console.log('Error creating shipment:', err?.response?.data || err);
-        return new Response(JSON.stringify({ error: 'Error creating shipment' }), {
+        
+return new Response(JSON.stringify({ error: 'Error creating shipment' }), {
             status: 500,
             headers: { 'Content-Type': 'application/json' },
         });

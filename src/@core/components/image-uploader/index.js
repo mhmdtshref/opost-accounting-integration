@@ -1,5 +1,6 @@
-import { Box, Typography } from '@mui/material'
 import { useState } from 'react'
+
+import { Box, Typography } from '@mui/material'
 import toast from 'react-hot-toast'
 import { useTheme } from '@mui/material/styles'
 import UploadIcon from 'mdi-material-ui/Upload'
@@ -22,20 +23,29 @@ export const ImageUploader = ({
     try {
       setIsLoading(true)
       const files = event.target.files
+
       if (!files?.length) {
         toast.error('choose image failed')
-        return
+        
+return
       }
+
       const formData = new FormData()
+
       formData.append('file', files[0])
+
       const response = await axios.post('/api/upload', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       })
+
       const imageUrl = response?.data?.url
+
       if (!imageUrl) {
         toast.error('upload image failed')
-        return
+        
+return
       }
+
       onChange(imageUrl)
     } catch (error) {
       toast.error('upload image failed')
