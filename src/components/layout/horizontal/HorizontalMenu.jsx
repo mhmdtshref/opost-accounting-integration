@@ -65,10 +65,10 @@ const HorizontalMenu = () => {
         }}
       >
         <MenuItem href='/' icon={<i className='ri-home-smile-line' />}>
-          Home
+          الرئيسية
         </MenuItem>
         <MenuItem href='/shipments' icon={<i className='ri-information-line' />}>
-          Shipments
+          الشحنات
         </MenuItem>
         <MenuItem href='/companies' icon={<i className='ri-building-line' />}>
           الشركات

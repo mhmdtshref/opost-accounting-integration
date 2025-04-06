@@ -21,7 +21,7 @@ const ShipmentsList = () => {
         <Box>
             <Box pt={2}>
                 <Box>
-                    <Typography variant="h6">Shipments</Typography>
+                    <Typography variant="h6">الشحنات</Typography>
                     <Button variant="contained" color="primary" onClick={() => router.push('/shipments/create')}>اضافة شحنة</Button>
                 </Box>
                 <Box display='flex' flexWrap='wrap' gap={2} marginTop={8}>
@@ -34,7 +34,7 @@ const ShipmentsList = () => {
                             <List>
                                 {shipment.content.map(contentItem => (
                                     <ListItem key={contentItem._id} style={{ padding: '0px', margin: '0px' }}>
-                                        <ListItemText primary={<Typography variant="body2">{contentItem.product.name}</Typography>} secondary={<Typography variant="body2">Size: {contentItem.size} | Color: {contentItem.color}</Typography>} />
+                                        <ListItemText primary={<Typography variant="body2">{contentItem.product.name}</Typography>} secondary={<Typography variant="body2">القياس: {contentItem.size} | اللون: {contentItem.color}</Typography>} />
                                     </ListItem>
                                 ))}
                             </List>
