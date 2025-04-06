@@ -19,15 +19,21 @@ export const ProductForm = ({ product, action }) => {
         sellPrice: '',
         imageUrl: ''
     });
+    const [loadingCompaniesStatus, setLoadingCompaniesStatus] = useState('none');
 
     // const [errors, setErrors] = useState({});
 
     useEffect(() => {
-        axios.get('/api/companies')
+        if (loadingCompaniesStatus === 'none') {
+            axios.get('/api/companies')
             .then(companiesResponse => {
                 setCompanies(companiesResponse.data.companies || [])
             }
-            ).catch(err => console.log(err));
+            ).catch(err => console.log(err))
+            .finally(() => {
+                setLoadingCompaniesStatus('ready');
+            });
+        }
     }, []);
     
     const handleChange = (e) => {

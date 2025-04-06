@@ -12,6 +12,7 @@ export const ShipmentForm = ({ shipment, action }) => {
     const [products, setProducts] = useState([]);
     const [selectedProductsMap, setSelectedProductsMap] = useState({});
     const [isDialogOpen, setIsDialogOpen] = useState(false);
+    const [citiesLoadingStatus, setCitiesLoadingStatus] = useState('none');
 
     const [formData, setFormData] = useState(shipment || {
         content: [],
@@ -36,11 +37,16 @@ export const ShipmentForm = ({ shipment, action }) => {
     }, [formData.city]);
 
     useEffect(() => {
-        axios.get('/api/opost/cities')
+        if (citiesLoadingStatus === 'none') {
+            axios.get('/api/opost/cities')
             .then(citiesResponse => {
                 setCities(citiesResponse.data.cities || [])
             }
-            ).catch(err => console.log(err));
+            ).catch(err => console.log(err))
+            .finally(() => {
+                setCitiesLoadingStatus('ready');
+            });
+        }
     }, []);
 
     useEffect(() => {

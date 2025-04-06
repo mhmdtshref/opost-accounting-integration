@@ -11,7 +11,9 @@ export const ProductCard = ({ product }) => {
                         <Chip key={tag} label={tag} size='medium' />
                     ))}
                 </Box>
-                <Box mt={2} width='200px' height='200px' style={{ backgroundImage: `url(${product.imageUrl})`, backgroundSize: 'cover' }}>
+                <Box display='flex' justifyContent='center' alignItems='center' mt={2} width='100%' height='100%'>
+                    <Box mt={2} width='200px' height='260px' style={{ backgroundImage: `url(${product.imageUrl})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', }}>
+                </Box>
                 </Box>
             </CardContent>
         </Card>
