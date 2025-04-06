@@ -5,7 +5,7 @@ export const ContentItemCard = ({ contentItem, product, onRemove }) => {
         <Card>
             <CardContent>
                 <Box display='flex' justifyContent='space-between' alignItems='center'>
-                    <Chip label="Remove" color="error" onClick={onRemove} />
+                    <Chip label="حذف" color="error" onClick={onRemove} />
                 </Box>
                 <Typography variant="h6">Name: {product.name}</Typography>
                 <Box mt={2} width='200px' height='200px' style={{ backgroundImage: `url(${product.imageUrl})`, backgroundSize: 'cover' }}>

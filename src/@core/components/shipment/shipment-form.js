@@ -117,12 +117,12 @@ export const ShipmentForm = ({ shipment, action }) => {
                     </Box>
                 </Box>
                 <Box pt={2}>
-                    <TextField name='name' label="Name" variant="outlined" fullWidth sx={{ mt: 2 }} onChange={handleChange} />
+                    <TextField name='name' label="اسم المستلم" variant="outlined" fullWidth sx={{ mt: 2 }} onChange={handleChange} />
                 </Box>
                 <Box pt={2}>
                     <Autocomplete
                         options={cities}
-                        renderInput={(params) => <TextField {...params} label="City" variant="outlined" />}
+                        renderInput={(params) => <TextField {...params} label="المدينة" variant="outlined" />}
                         getOptionLabel={(option) => option?.label}
                         getOptionKey={(option) => `${option.value}-${option.label}`}
                         onChange={(_, newValue) => {
@@ -138,7 +138,7 @@ export const ShipmentForm = ({ shipment, action }) => {
                 <Box pt={2}>
                     <Autocomplete
                         options={areas}
-                        renderInput={(params) => <TextField {...params} label="Area" variant="outlined" />}
+                        renderInput={(params) => <TextField {...params} label="المنطقة" variant="outlined" />}
                         getOptionLabel={(option) => option?.label}
                         getOptionKey={(option) => `${option.value}-${option.label}`}
                         onChange={(_, newValue) => {
@@ -152,16 +152,16 @@ export const ShipmentForm = ({ shipment, action }) => {
                     />
                 </Box>
                 <Box pt={2}>
-                    <TextField name='address' label="Address" variant="outlined" fullWidth sx={{ mt: 2 }} onChange={handleChange} />
+                    <TextField name='address' label="العنوان" variant="outlined" fullWidth sx={{ mt: 2 }} onChange={handleChange} />
                 </Box>
                 <Box pt={2}>
-                    <TextField name='phone' label="Phone" variant="outlined" fullWidth sx={{ mt: 2 }} onChange={handleChange} />
+                    <TextField name='phone' label="الهاتف" variant="outlined" fullWidth sx={{ mt: 2 }} onChange={handleChange} />
                 </Box>
                 <Box pt={2}>
-                    <TextField name='total' label="Total" variant="outlined" fullWidth sx={{ mt: 2 }} onChange={handleChange} />
+                    <TextField name='total' label="التحصيل" variant="outlined" fullWidth sx={{ mt: 2 }} onChange={handleChange} />
                 </Box>
                 <Box pt={2}>
-                    <TextField name='notes' label="Notes" variant="outlined" fullWidth onChange={handleChange} />
+                    <TextField name='notes' label="ملاحظات" variant="outlined" fullWidth onChange={handleChange} />
                 </Box>
                 <Box pt={2}>
                     <Switch name='hasReturn' onChange={(e) => {
@@ -173,7 +173,7 @@ export const ShipmentForm = ({ shipment, action }) => {
                     <label>Has Return</label>
                 </Box>
                 {formData.hasReturn && <Box pt={2}>
-                    <TextField name='returnNotes' label="Return Notes" variant="outlined" fullWidth onChange={handleChange} />
+                    <TextField name='returnNotes' label="ملاحظات الارجاع" variant="outlined" fullWidth onChange={handleChange} />
                 </Box>}
                 <Box pt={2} display='flex' justifyContent='flex-end'>
                     <Button variant="contained" color="primary" onClick={createShipment}>Create</Button>

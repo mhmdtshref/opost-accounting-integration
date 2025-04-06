@@ -39,6 +39,6 @@ export const POST = async (request) => {
   } catch (error) {
     console.error("Error uploading file:", error);
     
-return NextResponse.json({ message: "File upload failed" }, { status: 500 });
+return NextResponse.json({ message: "فشل رفع الملف" }, { status: 500 });
   }
 }

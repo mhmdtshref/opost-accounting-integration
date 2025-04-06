@@ -18,7 +18,7 @@ const CreateProductPage = () => {
     }
 
     return <Card sx={{ padding: 2, margin: 2 }}>
-        <CardHeader title="Create Product" />
+        <CardHeader title="اضافة بضاعة" />
         <CardContent>
             <ProductForm action={createProduct} />
         </CardContent>

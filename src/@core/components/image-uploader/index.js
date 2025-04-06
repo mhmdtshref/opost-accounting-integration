@@ -25,7 +25,7 @@ export const ImageUploader = ({
       const files = event.target.files
 
       if (!files?.length) {
-        toast.error('choose image failed')
+        toast.error('فشل اختيار الصورة')
         
 return
       }
@@ -41,14 +41,14 @@ return
       const imageUrl = response?.data?.url
 
       if (!imageUrl) {
-        toast.error('upload image failed')
+        toast.error('فشل رفع الصورة')
         
 return
       }
 
       onChange(imageUrl)
     } catch (error) {
-      toast.error('upload image failed')
+      toast.error('فشل رفع الصورة')
     } finally {
       setIsLoading(false)
     }

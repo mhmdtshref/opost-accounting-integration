@@ -22,7 +22,7 @@ const ShipmentsList = () => {
             <Box pt={2}>
                 <Box>
                     <Typography variant="h6">Shipments</Typography>
-                    <Button variant="contained" color="primary" onClick={() => router.push('/shipments/create')}>Create Shipment</Button>
+                    <Button variant="contained" color="primary" onClick={() => router.push('/shipments/create')}>اضافة شحنة</Button>
                 </Box>
                 <Box display='flex' flexWrap='wrap' gap={2} marginTop={8}>
                     {shipments.map(shipment => (

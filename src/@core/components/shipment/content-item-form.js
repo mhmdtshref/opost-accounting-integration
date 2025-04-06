@@ -55,10 +55,10 @@ export const ContentItemForm = ({ products, action }) => {
                     {selectedProduct && <Typography variant="h6">Selected Product: {selectedProduct.name}</Typography>}
                 </Box>
                 <Box pt={2}>
-                    <TextField name='size' type='number' label="Size" variant="outlined" fullWidth onChange={handleChange} />
+                    <TextField name='size' type='number' label="القياس" variant="outlined" fullWidth onChange={handleChange} />
                 </Box>
                 <Box pt={2}>
-                    <TextField name='color' type='text' label="Color" variant="outlined" fullWidth onChange={handleChange} />
+                    <TextField name='color' type='text' label="اللون" variant="outlined" fullWidth onChange={handleChange} />
                 </Box>
                 <Box pt={2} display='flex' justifyContent='flex-end'>
                     <Button variant="contained" color="primary" onClick={() => action(formData, selectedProduct)}>Add</Button>

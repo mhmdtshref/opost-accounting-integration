@@ -53,7 +53,7 @@ return searchArr.every((word) => searchString.includes(word));
     return (
         <Box>
             <Box>
-                <TextField label="Search" variant="outlined" fullWidth onChange={handleSearch} />
+                <TextField label="البحث" variant="outlined" fullWidth onChange={handleSearch} />
             </Box>
             {loadingStatus === 'ready' ? <Box display='flex' flexWrap='wrap' gap={2} marginTop={8}>
                 {filteredProducts.map(product => (

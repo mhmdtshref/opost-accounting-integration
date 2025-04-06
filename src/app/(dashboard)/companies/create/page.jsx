@@ -3,20 +3,18 @@
 import { useRouter } from "next/navigation";
 
 import { Card, CardContent, CardHeader } from "@mui/material";
-
 import axios from "axios";
 
-import { ShipmentForm } from "@/@core/components/shipment/shipment-form";
-
+import { CompanyForm } from "@/@core/components/company/company-form";
 
 const CreateProductPage = () => {
 
     const router = useRouter();
 
-    const createShipment = async (shipment) => {
-        axios.post('/api/shipments', shipment)
+    const createCompany = async (company) => {
+        axios.post('/api/companies', company)
             .then(res => {
-                router.push('/shipments');
+                router.push('/companies');
             })
             .catch(err => {
                 console.log('err:', err);
@@ -24,9 +22,9 @@ const CreateProductPage = () => {
     }
 
     return <Card sx={{ padding: 2, margin: 2 }}>
-        <CardHeader title="اضافة بضاعة" />
+        <CardHeader title="اضافة شركة" />
         <CardContent>
-            <ShipmentForm action={createShipment} />
+            <CompanyForm action={createCompany} />
         </CardContent>
     </Card>
 }
