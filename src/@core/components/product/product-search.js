@@ -35,7 +35,17 @@ export const ProductSearch = ({ products: prods, selectable = false, setSelected
 
     const handleSearch = (e) => {
         setSearch(e.target.value);
-        const newFilteredProducts = products.filter(product => product.searchString.includes(e.target.value.toLowerCase()));
+
+        const searchArr = e.target.value.toLowerCase().split(' ')
+        .map((word) => word.trim())
+        .filter((word) => word !== '');
+
+        const newFilteredProducts = products.filter(product => {
+            const searchString = product.searchString.toLowerCase();
+
+            
+return searchArr.every((word) => searchString.includes(word));
+        });
 
         setFilteredProducts(newFilteredProducts);
     }
