@@ -47,7 +47,7 @@ export const ShipmentForm = ({ shipment, action }) => {
                 setCitiesLoadingStatus('ready');
             });
         }
-    }, []);
+    }, [citiesLoadingStatus]);
 
     useEffect(() => {
         axios.get('/api/products')

@@ -27,10 +27,11 @@ export const ProductSearch = ({ products: prods, selectable = false, setSelected
                 setLoadingStatus('ready');
             });
         }
+
         if (prods) {
             setLoadingStatus('ready');
         }
-    }, [products, search]);
+    }, [products, search, loadingStatus, prods]);
 
     const handleSearch = (e) => {
         setSearch(e.target.value);

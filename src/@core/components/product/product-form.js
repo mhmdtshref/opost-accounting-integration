@@ -19,6 +19,7 @@ export const ProductForm = ({ product, action }) => {
         sellPrice: '',
         imageUrl: ''
     });
+
     const [loadingCompaniesStatus, setLoadingCompaniesStatus] = useState('none');
 
     // const [errors, setErrors] = useState({});
@@ -34,7 +35,7 @@ export const ProductForm = ({ product, action }) => {
                 setLoadingCompaniesStatus('ready');
             });
         }
-    }, []);
+    }, [loadingCompaniesStatus]);
     
     const handleChange = (e) => {
         setFormData({
