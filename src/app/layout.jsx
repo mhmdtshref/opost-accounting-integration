@@ -14,8 +14,14 @@ import '@/app/globals.css'
 import '@assets/iconify-icons/generated-icons.css'
 
 export const metadata = {
-  title: 'Materialize - Material Next.js Admin Template',
-  description: 'Materialize - Material Next.js Admin Template'
+  title: 'OPost Integration',
+  description: 'OPost Integration site to make accouning easier',
+  manifest: '/manifest.json',
+  appleWebApp: {
+    title: 'OPost Integration',
+    statusBarStyle: 'default',
+    capable: true
+  },
 }
 
 const RootLayout = async props => {
@@ -27,6 +33,12 @@ const RootLayout = async props => {
 
   return (
     <html id='__next' lang='en' dir={direction} suppressHydrationWarning>
+      <head>
+        <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="CoolApp" />
+      </head>
       <body className='flex is-full min-bs-full flex-auto flex-col'>
         <InitColorSchemeScript attribute='data' defaultMode={systemMode} />
         {children}
