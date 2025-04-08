@@ -1,14 +1,10 @@
 import { useEffect, useState } from "react";
-
-import { useRouter } from "next/navigation";
-
 import { Box, Button, Chip, FormControl, InputLabel, MenuItem, Select, TextField } from "@mui/material";
 import axios from "axios";
 
 import { ImageUploader } from "../image-uploader";
 
 export const ProductForm = ({ product, action }) => {
-    const router = useRouter();
     const [companies, setCompanies] = useState([]);
 
     const [formData, setFormData] = useState(product || {
