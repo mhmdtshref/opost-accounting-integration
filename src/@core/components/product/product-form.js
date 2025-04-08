@@ -65,7 +65,6 @@ export const ProductForm = ({ product, action }) => {
 
     const createAndViewProducts = async (product) => {
         await action(formData);
-        router.push('/')
     }
 
     return (
