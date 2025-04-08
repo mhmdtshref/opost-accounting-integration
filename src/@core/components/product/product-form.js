@@ -15,7 +15,6 @@ export const ProductForm = ({ product, action }) => {
         companyId: '',
         code: '',
         tags: [],
-        price: '',
         sellPrice: '',
         imageUrl: ''
     });
@@ -95,9 +94,6 @@ export const ProductForm = ({ product, action }) => {
                         <Chip color='primary' key={tag} label={tag} onDelete={() => handleRemoveTag(tag)} />
                     ))}
                 </Box>
-            </Box>
-            <Box pt={2}>
-                <TextField name='price' type='number' label="السعر" variant="outlined" fullWidth onChange={handleChange} />
             </Box>
             <Box pt={2}>
                 <TextField name='sellPrice' type='number' label="سعر البيع" variant="outlined" fullWidth onChange={handleChange} />
