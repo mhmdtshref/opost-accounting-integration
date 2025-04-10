@@ -1,21 +1,18 @@
 import { useEffect, useState } from "react";
 
-import { useRouter } from "next/navigation";
+import { Box, Button, Chip, TextField, Autocomplete } from "@mui/material";
 
-import { Autocomplete, Box, Button, Chip, FormControl, InputLabel, MenuItem, Select, TextField } from "@mui/material";
 import axios from "axios";
 
 import { ImageUploader } from "../image-uploader";
 
 export const ProductForm = ({ product, action }) => {
-    const router = useRouter();
     const [companies, setCompanies] = useState([]);
 
     const [formData, setFormData] = useState(product || {
         companyId: null,
         code: '',
         tags: [],
-        price: '',
         sellPrice: '',
         imageUrl: ''
     });
@@ -66,7 +63,6 @@ export const ProductForm = ({ product, action }) => {
 
     const createAndViewProducts = async (product) => {
         await action(formData);
-        router.push('/')
     }
 
     return (
@@ -100,9 +96,6 @@ export const ProductForm = ({ product, action }) => {
                         <Chip color='primary' key={tag} label={tag} onDelete={() => handleRemoveTag(tag)} />
                     ))}
                 </Box>
-            </Box>
-            <Box pt={2}>
-                <TextField name='price' type='number' label="السعر" variant="outlined" fullWidth onChange={handleChange} />
             </Box>
             <Box pt={2}>
                 <TextField name='sellPrice' type='number' label="سعر البيع" variant="outlined" fullWidth onChange={handleChange} />

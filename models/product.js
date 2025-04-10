@@ -30,7 +30,7 @@ const ProductSchema = new mongoose.Schema({
   },
   sellPrice: {
     type: Number,
-    required: [true, 'Product pay price is required'],
+    required: [true, 'Product selling price is required'],
   },
   imageUrl: {
     type: String,

@@ -1,16 +1,21 @@
 'use client';
 
+import { useRouter } from "next/navigation";
+
 import { Card, CardContent, CardHeader } from "@mui/material";
+
 import axios from "axios";
 
 import { ProductForm } from "@/@core/components/product/product-form";
 
 const CreateProductPage = () => {
 
+    const router = useRouter();
+
     const createProduct = async (product) => {
         axios.post('/api/products', product)
             .then(res => {
-                console.log('res:', res);
+              router.push('/')
             })
             .catch(err => {
                 console.log('err:', err);
