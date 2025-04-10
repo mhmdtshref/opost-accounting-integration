@@ -16,7 +16,7 @@ export const GET = async (request) => {
         filter.tags = { $all: tagsArray };
     }
     
-    const products = await Product.find(filter);
+    const products = await Product.find(filter).limit(12);
 
     return new Response(JSON.stringify({ products }), {
         headers: { 'Content-Type': 'application/json' },
