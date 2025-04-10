@@ -84,6 +84,9 @@ export const ProductForm = ({ product, action }) => {
                 />
             </Box>
             <Box pt={2}>
+                <TextField name='code' type='text' label="الكود" variant="outlined" fullWidth onChange={handleChange} />
+            </Box>
+            <Box pt={2}>
                 <TextField name='tags' label="الكلمات المفتاحية" variant="outlined" fullWidth onKeyUp={(e) => {
                     if (e.key === 'Enter') {
                         handleAddTag(e.target.value)
