@@ -42,6 +42,7 @@ export const ShipmentForm = ({ shipment, action }) => {
 
     useEffect(() => {
         if (citiesLoadingStatus === 'none') {
+            setCitiesLoadingStatus('loading');
             axios.get('/api/opost/cities')
             .then(citiesResponse => {
                 setCities(citiesResponse.data.cities || [])

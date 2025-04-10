@@ -6,10 +6,6 @@ const ProductSchema = new mongoose.Schema({
     required: [true, "Product name is required"],
     maxlength: [60, "Product name cannot be more than 60 characters"],
   },
-  searchString: {
-    type: String,
-    required: [true, 'Product search string is required'],
-  },
   companyId: {
     type: mongoose.Types.ObjectId,
     ref: 'Company',

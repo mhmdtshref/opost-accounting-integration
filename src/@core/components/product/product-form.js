@@ -10,6 +10,8 @@ import { ImageUploader } from "../image-uploader";
 
 export const ProductForm = ({ product, action }) => {
     const [companies, setCompanies] = useState([]);
+    const [loadingTagsStatus, setLoadingTagsStatus] = useState('none');
+    const [tags, setTags] = useState([]);
 
     const [formData, setFormData] = useState(product || {
         companyId: null,
@@ -24,7 +26,24 @@ export const ProductForm = ({ product, action }) => {
     // const [errors, setErrors] = useState({});
 
     useEffect(() => {
+        if (loadingTagsStatus === 'none') {
+            setLoadingTagsStatus('loading');
+            axios.get('/api/products/tags')
+            .then(tagsResponse => {
+                setTags(tagsResponse.data?.tags || [])
+            }
+            ).catch(_err => toast.error('حدث خطأ ما, حاول مجددا', {
+                duration: 3000,
+            }))
+            .finally(() => {
+                setLoadingTagsStatus('ready');
+            });
+        }
+    }, [loadingTagsStatus])
+
+    useEffect(() => {
         if (loadingCompaniesStatus === 'none') {
+            setLoadingCompaniesStatus('loading');
             axios.get('/api/companies')
             .then(companiesResponse => {
                 setCompanies(companiesResponse.data?.companies || [])
@@ -58,10 +77,16 @@ export const ProductForm = ({ product, action }) => {
         });
     }
 
-    const handleRemoveTag = (value) => {
+    const handleTagChange = (value) => {
+        if (!Array.isArray(value)) {
+            return;
+        }
+
+        const preparedValue = value.map(tag => tag.trim().toLowerCase()).filter(tag => tag !== '');
+
         setFormData({
             ...formData,
-            tags: formData.tags.filter(tag => tag !== value)
+            tags: preparedValue
         });
     }
 
@@ -91,18 +116,19 @@ export const ProductForm = ({ product, action }) => {
                 <TextField name='code' type='text' label="الكود" variant="outlined" fullWidth onChange={handleChange} />
             </Box>
             <Box pt={2}>
-                <TextField name='tags' label="الكلمات المفتاحية" variant="outlined" fullWidth onKeyUp={(e) => {
-                    if (e.key === 'Enter') {
-                        handleAddTag(e.target.value)
-                        e.target.value = '';
-                    }
-                }}
+                <Autocomplete
+                    options={tags}
+                    renderInput={(params) => <TextField {...params} label="الكلمات المفتاحية" variant="outlined" />}
+                    getOptionLabel={(option) => option}
+                    multiple
+                    freeSolo
+                    getOptionKey={(option) => `${option}-${option}`}
+                    onChange={(_, newValue) => {
+                        handleTagChange(newValue);
+                    }}
+                    value={formData.tags}
+                    sx={{ mt: 2 }}
                 />
-                <Box>
-                    {formData.tags.map(tag => (
-                        <Chip color='primary' key={tag} label={tag} onDelete={() => handleRemoveTag(tag)} />
-                    ))}
-                </Box>
             </Box>
             <Box pt={2}>
                 <TextField name='sellPrice' type='number' label="سعر البيع" variant="outlined" fullWidth onChange={handleChange} />

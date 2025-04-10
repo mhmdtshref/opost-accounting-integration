@@ -18,6 +18,7 @@ export const CompaniesList = ({ companies: comps }) => {
 
     useEffect(() => {
         if (!comps && loadingStatus === 'none') {
+            setLoadingStatus('loading');
             axios.get(`/api/companies?search=${search}`)
             .then(companiesResponse => {
                 setCompanies(companiesResponse.data.companies || [])

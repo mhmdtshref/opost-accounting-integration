@@ -1,5 +1,6 @@
 import { dbConnect } from "../../../../lib/db-connect";
 import { Company } from "../../../../models/company";
+import { GlobalConfig } from "../../../../models/global-config";
 import { Product } from "../../../../models/product";
 
 export const GET = async (request) => {
@@ -25,26 +26,56 @@ export const GET = async (request) => {
 
 export const POST = async (request) => {
 
-    await dbConnect();
+    try {
+        await dbConnect();
 
-    const data = await request.json();
+        const data = await request.json();
 
-    const company = await Company.findById(data.companyId);
+        const company = await Company.findById(data.companyId);
 
-    if (!company) {
-        return new Response(JSON.stringify({ error: 'Company not found' }), {
-            status: 404,
+        if (!company) {
+            return new Response(JSON.stringify({ error: 'Company not found' }), {
+                status: 404,
+                headers: { 'Content-Type': 'application/json' },
+            });
+        }
+
+        const name = `${company.name} ${data.code}`;
+
+        const tags = [
+            ...data.tags.map(tag => tag.toLowerCase()),
+            ...company.tags,
+            name.toLowerCase(),
+            data.code.toLowerCase(),
+        ];
+
+        const globalConfig = await GlobalConfig.findOne({});
+
+        if (globalConfig) {
+            const newGlobalTagsSet = new Set([
+                ...(globalConfig.tags || []),
+                ...tags
+            ]);
+
+            globalConfig.tags = Array.from(newGlobalTagsSet);
+            await globalConfig.save();
+        }
+
+        const product = await Product.create({
+            ...data,
+            name,
+            tags,
+        });
+
+        return new Response(JSON.stringify({ product }), {
+            headers: { 'Content-Type': 'application/json' },
+        });
+    } catch (error) {
+        console.error('error:', JSON.stringify(error, null, 2));
+        
+return new Response(JSON.stringify({ error: 'Internal Server Error' }), {
+            status: 500,
             headers: { 'Content-Type': 'application/json' },
         });
     }
-
-    const product = await Product.create({
-        name: `${company.name} ${data.code}`,
-        searchString: `${company.name.toLowerCase()} ${company.tags.join(' ')} ${data.code.toLowerCase()} ${data.tags.join(' ').toLowerCase()}`,
-        ...data,
-    });
-
-    return new Response(JSON.stringify({ product }), {
-        headers: { 'Content-Type': 'application/json' },
-    });
 }

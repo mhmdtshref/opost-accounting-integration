@@ -22,6 +22,7 @@ export const ProductSearch = ({ products: prods, selectable = false, setSelected
 
     useEffect(() => {
         if (!tags.length && loadingTagsStatus === 'none') {
+            setLoadingTagsStatus('loading');
             axios.get(`/api/products/tags`)
             .then(tagsResponse => {
                 setTags(tagsResponse.data.tags || []);
@@ -52,6 +53,7 @@ return await axios.get(`/api/products`, { params })
 
     useEffect(() => {
         if (!prods && loadingStatus === 'none') {
+            setLoadingStatus('loading');
             getProducts()
             .finally(() => {
                 setLoadingStatus('ready');
@@ -91,7 +93,7 @@ return await axios.get(`/api/products`, { params })
                 />
             </Box>
             {loadingStatus === 'ready' ? <Box display='flex' flexWrap='wrap' gap={2} marginTop={8}>
-                <Grid2 container spacing={2}>
+                <Grid2 container spacing={2} width={'100%'}>
                 {products.map(product => (
                     <Grid2 key={product._id} size={{ xs: 6, sm: 6, md: 3, lg: 3, xl: 3 }}>
                         <Box key={product._id} width={'100%'} onClick={() => {
