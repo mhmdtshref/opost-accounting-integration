@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 import { Accordion, AccordionDetails, AccordionSummary, Box, Button, Card, CardContent, Chip, FormControl, InputLabel, MenuItem, Select, TextField, Typography } from "@mui/material";
 import axios from "axios";
 
+import toast from "react-hot-toast";
+
 import { ProductSearch } from "../product/product-search";
 
 export const ContentItemForm = ({ products, action }) => {
@@ -24,6 +26,16 @@ export const ContentItemForm = ({ products, action }) => {
             ...formData,
             [e.target.name]: e.target.value
         });
+    }
+
+    const handleAdd = () => {
+        if (!formData.productId || !formData.size || !formData.color) {
+            toast.error('يرجى ملئ جميع الحقول', {
+                duration: 3000,
+            });
+        }
+
+        action(formData, selectedProduct);
     }
 
     return (
@@ -61,7 +73,7 @@ export const ContentItemForm = ({ products, action }) => {
                     <TextField name='color' type='text' label="اللون" variant="outlined" fullWidth onChange={handleChange} />
                 </Box>
                 <Box pt={2} display='flex' justifyContent='flex-end'>
-                    <Button variant="contained" color="primary" onClick={() => action(formData, selectedProduct)}>Add</Button>
+                    <Button variant="contained" color="primary" onClick={handleAdd}>اضافة</Button>
                 </Box>
             </CardContent>
         </Card>
