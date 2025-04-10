@@ -86,7 +86,7 @@ return await axios.get(`/api/products`, { params })
             </Box>
             {loadingStatus === 'ready' ? <Box display='flex' flexWrap='wrap' gap={2} marginTop={8}>
                 {products.map(product => (
-                    <Grid2 key={product._id} size={{ xs: 12, sm: 12, md: 3, lg: 3, xl: 3 }} display='flex' justifyContent='center' alignItems='center' width={'100%'}>
+                    <Grid2 key={product._id} size={{ xs: 12, sm: 6, md: 3, lg: 3, xl: 3 }} display='flex' justifyContent='center' alignItems='center' width={'100%'}>
                         <Box key={product._id} width={'100%'} onClick={() => {
                             if (selectable) {
                                 setSelectedProduct(product);
