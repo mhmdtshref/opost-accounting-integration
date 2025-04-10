@@ -6,6 +6,8 @@ import { Autocomplete, Box, CircularProgress, Grid2, TextField } from "@mui/mate
 
 import axios from "axios";
 
+import toast from "react-hot-toast";
+
 import { ProductCard } from "./product-card";
 
 
@@ -23,7 +25,9 @@ export const ProductSearch = ({ products: prods, selectable = false, setSelected
             axios.get(`/api/products/tags`)
             .then(tagsResponse => {
                 setTags(tagsResponse.data.tags || []);
-            }).catch(err => console.log(err))
+            }).catch(err => toast.error('حدث خطأ ما, حاول مجددا', {
+                duration: 3000,
+            }))
             .finally(() => {
                 setLoadingTagsStatus('ready');
             });
@@ -41,7 +45,9 @@ export const ProductSearch = ({ products: prods, selectable = false, setSelected
 return await axios.get(`/api/products`, { params })
             .then(productsResponse => {
                 setProducts(productsResponse.data.products || [])
-            }).catch(err => console.log(err))
+            }).catch(err => toast.error('حدث خطأ ما, حاول مجددا', {
+                duration: 3000,
+            }))
     }, [selectedTags]);
 
     useEffect(() => {

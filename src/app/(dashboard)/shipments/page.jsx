@@ -6,6 +6,8 @@ import { useRouter } from "next/navigation";
 import { Box, Button, Card, CardActions, CardContent, Chip, Dialog, DialogActions, DialogContent, DialogContentText, List, ListItem, ListItemText, Typography } from "@mui/material";
 import axios from "axios";
 
+import toast from "react-hot-toast";
+
 import { ShipmentStatusColors, ShipmentStatuses, ShipmentStatusLabels } from "@/@core/constants/shipment";
 
 const ShipmentsList = () => {
@@ -17,14 +19,18 @@ const ShipmentsList = () => {
         axios.get('/api/shipments')
             .then(shipmentsResponse => {
                 setShipments(shipmentsResponse.data.shipments || [])
-            }).catch(err => console.log(err));
+            }).catch(err => toast.error('حدث خطأ ما, حاول مجددا', {
+                duration: 3000,
+            }));
     },  []);
 
     const handleSolve = (id) => {
         axios.patch(`/api/shipments/${id}/solve`)
             .then(() => {
                 setShipments(shipments.filter(shipment => shipment._id !== id));
-            }).catch(err => console.log(err))
+            }).catch(err => toast.error('حدث خطأ ما, حاول مجددا', {
+                duration: 3000,
+            }))
             .finally(() => {
                 setPendingShipmentToSolve(null);
             });

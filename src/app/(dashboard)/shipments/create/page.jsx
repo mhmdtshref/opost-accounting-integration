@@ -6,6 +6,8 @@ import { Card, CardContent, CardHeader } from "@mui/material";
 
 import axios from "axios";
 
+import toast from "react-hot-toast";
+
 import { ShipmentForm } from "@/@core/components/shipment/shipment-form";
 
 
@@ -18,9 +20,9 @@ const CreateProductPage = () => {
             .then(res => {
                 router.push('/shipments');
             })
-            .catch(err => {
-                console.log('err:', err);
-            });
+            .catch(err => toast.error('حدث خطأ ما, حاول مجددا', {
+                    duration: 3000,
+                }));
     }
 
     return <Card sx={{ padding: 2, margin: 2 }}>

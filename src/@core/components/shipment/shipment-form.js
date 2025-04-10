@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { Autocomplete, Box, Button, Dialog, FormControl, InputLabel, MenuItem, Select, Switch, TextField, Typography } from "@mui/material";
 import axios from "axios";
 
+import toast from "react-hot-toast";
+
 import { ContentItemCard } from "./content-item-card";
 import { ContentItemForm } from "./content-item-form";
 
@@ -32,7 +34,9 @@ export const ShipmentForm = ({ shipment, action }) => {
                 .then(areasResponse => {
                     setAreas(areasResponse.data.areas || [])
                 }
-                ).catch(err => console.log(err));
+                ).catch(err => toast.error('حدث خطأ ما, حاول مجددا', {
+                    duration: 3000,
+                }));
         }
     }, [formData.city]);
 
@@ -42,7 +46,9 @@ export const ShipmentForm = ({ shipment, action }) => {
             .then(citiesResponse => {
                 setCities(citiesResponse.data.cities || [])
             }
-            ).catch(err => console.log(err))
+            ).catch(err => toast.error('حدث خطأ ما, حاول مجددا', {
+                duration: 3000,
+            }))
             .finally(() => {
                 setCitiesLoadingStatus('ready');
             });
@@ -54,7 +60,9 @@ export const ShipmentForm = ({ shipment, action }) => {
             .then(productsResponse => {
                 setProducts(productsResponse.data.products || [])
             }
-            ).catch(err => console.log(err));
+            ).catch(err => toast.error('حدث خطأ ما, حاول مجددا', {
+                duration: 3000,
+            }));
     }, []);
     
     const handleChange = (e) => {

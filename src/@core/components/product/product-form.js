@@ -4,6 +4,8 @@ import { Box, Button, Chip, TextField, Autocomplete } from "@mui/material";
 
 import axios from "axios";
 
+import toast from "react-hot-toast";
+
 import { ImageUploader } from "../image-uploader";
 
 export const ProductForm = ({ product, action }) => {
@@ -27,7 +29,9 @@ export const ProductForm = ({ product, action }) => {
             .then(companiesResponse => {
                 setCompanies(companiesResponse.data?.companies || [])
             }
-            ).catch(err => console.log(err))
+            ).catch(err => toast.error('حدث خطأ ما, حاول مجددا', {
+                duration: 3000,
+            }))
             .finally(() => {
                 setLoadingCompaniesStatus('ready');
             });

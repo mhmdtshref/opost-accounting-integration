@@ -5,6 +5,8 @@ import { useEffect, useState } from "react"
 import { Box, CircularProgress, Grid2, TextField } from "@mui/material"
 import axios from "axios";
 
+import toast from "react-hot-toast";
+
 import { CompanyCard } from "./company-card";
 
 export const CompaniesList = ({ companies: comps }) => {
@@ -20,7 +22,9 @@ export const CompaniesList = ({ companies: comps }) => {
             .then(companiesResponse => {
                 setCompanies(companiesResponse.data.companies || [])
                 setFilteredCompanies(companiesResponse.data.companies || []);
-            }).catch(err => console.log(err))
+            }).catch(err => toast.error('حدث خطأ ما, حاول مجددا', {
+                    duration: 3000,
+                }))
             .finally(() => {
                 setLoadingStatus('ready');
             });
