@@ -10,6 +10,11 @@ export const GET = async (request) => {
 
     const shipments = await Shipment.aggregate([
         {
+            $match: {
+                status: "pending"
+            }
+        },
+        {
             $lookup: {
                 from: 'products',
                 localField: 'content.productId',
@@ -82,8 +87,7 @@ export const POST = async (request) => {
         const contentString = content.map(c => {
             const product = products.find(p => p._id.toString() === c.productId);
 
-            
-return `name: ${product.name} | size: ${c.size} | color: ${c.color}\n`;
+            return `name: ${product.name} | size: ${c.size} | color: ${c.color}\n`;
         });
 
         const createShipmentResponse = await axios.post(`${process.env.OPOST_API_URL}/resources/shipments`, {
@@ -122,22 +126,22 @@ return `name: ${product.name} | size: ${c.size} | color: ${c.color}\n`;
             }
         });
 
-        console.log('\n\n\n\ncreateShipmentResponse:', createShipmentResponse.data.id, '\n\n\n\n');
         const externalId = `${createShipmentResponse.data.id}`
-
+        const shipmentFees = createShipmentResponse.data.resource.fees;
 
         const shipment = await Shipment.create({
             content,
             notes,
-            price: total,
-            externalId
+            total,
+            externalId,
+            shipmentFees,
         });
 
         return new Response(JSON.stringify({ shipment }), {
             headers: { 'Content-Type': 'application/json' },
         });
     } catch (err) {
-        console.log('Error creating shipment:', err?.response?.data || err);
+        console.log('Error creating shipment:', JSON.stringify(err, null, 2));
         
 return new Response(JSON.stringify({ error: 'Error creating shipment' }), {
             status: 500,

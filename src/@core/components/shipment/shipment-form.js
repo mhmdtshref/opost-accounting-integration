@@ -102,7 +102,7 @@ export const ShipmentForm = ({ shipment, action }) => {
                     </Box>
                     <Box pt={2}>
                         <Button variant="outlined" color="primary" onClick={() => setIsDialogOpen(true)}>
-                            Select
+                            اختيار
                         </Button>
                     </Box>
                     <Box pt={2}>

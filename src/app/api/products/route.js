@@ -32,7 +32,7 @@ export const POST = async (request) => {
 
     const product = await Product.create({
         name: `${company.name} ${data.code}`,
-        searchString: `${company.name.toLowerCase()} ${data.code.toLowerCase()} ${data.tags.join(' ').toLowerCase()}`,
+        searchString: `${company.name.toLowerCase()} ${company.tags.join(' ')} ${data.code.toLowerCase()} ${data.tags.join(' ').toLowerCase()}`,
         ...data,
     });
 

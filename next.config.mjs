@@ -15,7 +15,7 @@ export default configWithPWA({
     return [
       {
         source: '/',
-        destination: '/home',
+        destination: '/shipments/create',
         permanent: true,
         locale: false
       }

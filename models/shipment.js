@@ -22,7 +22,7 @@ const ShipmentSchema = new mongoose.Schema({
     type: String,
     required: [true, "Shipment status is required"],
     default: 'pending',
-    enum: ['pending', 'delivered', 'canceled', 'completed'],
+    enum: ['pending', 'done'],
   },
   externalId: {
     type: String,
@@ -32,6 +32,14 @@ const ShipmentSchema = new mongoose.Schema({
   notes: {
     type: String,
   },
+  total: {
+    type: Number,
+    required: [true, "Total is required"],
+  },
+  shipmentFees: {
+    type: Number,
+    required: [true, "Shipment fees are required"],
+  }
 });
 
 export const Shipment = mongoose.models.Shipment || mongoose.model("Shipment", ShipmentSchema);

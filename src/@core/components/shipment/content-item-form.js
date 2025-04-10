@@ -9,7 +9,7 @@ import { ProductSearch } from "../product/product-search";
 
 export const ContentItemForm = ({ products, action }) => {
     const [selectedProduct, setSelectedProduct] = useState(null);
-    const [isProductSearchExpanded, setIsProductSearchExpanded] = useState(false);
+    const [isProductSearchExpanded, setIsProductSearchExpanded] = useState(true);
 
     const [formData, setFormData] = useState({
         productId: '',
@@ -32,7 +32,7 @@ export const ContentItemForm = ({ products, action }) => {
                 <Box>
                     <Accordion expanded={isProductSearchExpanded}>
                         <AccordionSummary onClick={() => setIsProductSearchExpanded(!isProductSearchExpanded)}>
-                            <Typography variant="h6">Product Selection</Typography>
+                            <Typography variant="h6">اختيار بضاعة</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
                             <ProductSearch
@@ -52,7 +52,7 @@ export const ContentItemForm = ({ products, action }) => {
                     </Accordion>
                 </Box>
                 <Box pt={2}>
-                    {selectedProduct && <Typography variant="h6">Selected Product: {selectedProduct.name}</Typography>}
+                    {selectedProduct && <Typography variant="h6">البضاعة المحددة: {selectedProduct.name}</Typography>}
                 </Box>
                 <Box pt={2}>
                     <TextField name='size' type='number' label="القياس" variant="outlined" fullWidth onChange={handleChange} />

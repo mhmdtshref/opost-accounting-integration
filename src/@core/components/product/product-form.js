@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import { useRouter } from "next/navigation";
 
-import { Box, Button, Chip, FormControl, InputLabel, MenuItem, Select, TextField } from "@mui/material";
+import { Autocomplete, Box, Button, Chip, FormControl, InputLabel, MenuItem, Select, TextField } from "@mui/material";
 import axios from "axios";
 
 import { ImageUploader } from "../image-uploader";
@@ -12,7 +12,7 @@ export const ProductForm = ({ product, action }) => {
     const [companies, setCompanies] = useState([]);
 
     const [formData, setFormData] = useState(product || {
-        companyId: '',
+        companyId: null,
         code: '',
         tags: [],
         price: '',
@@ -28,7 +28,7 @@ export const ProductForm = ({ product, action }) => {
         if (loadingCompaniesStatus === 'none') {
             axios.get('/api/companies')
             .then(companiesResponse => {
-                setCompanies(companiesResponse.data.companies || [])
+                setCompanies(companiesResponse.data?.companies || [])
             }
             ).catch(err => console.log(err))
             .finally(() => {
@@ -71,16 +71,21 @@ export const ProductForm = ({ product, action }) => {
 
     return (
         <Box>
-            <Box display='flex' justifyContent='space-between' gap={2}>
-                <FormControl fullWidth>
-                    <InputLabel id="company-select-label">Company</InputLabel>
-                    <Select name='companyId' value={formData.companyId} labelId='company-select-label' label='الشركة' variant='outlined' onChange={handleChange}>
-                        {companies.map(company => (
-                            <MenuItem key={company._id} value={company._id}>{company.name} </MenuItem>
-                        ))}
-                    </Select>
-                </FormControl>
-                <TextField name='code' label="الكود" variant="outlined" onChange={handleChange} fullWidth />
+            <Box pt={2}>
+                <Autocomplete
+                    options={companies}
+                    renderInput={(params) => <TextField {...params} label="الشركة" variant="outlined" />}
+                    getOptionLabel={(option) => option?.name}
+                    getOptionKey={(option) => `${option._id}-${option.name}`}
+                    onChange={(_, newValue) => {
+                        setFormData({
+                            ...formData,
+                            companyId: newValue
+                        });
+                    }}
+                    value={formData.companyId}
+                    sx={{ mt: 2 }}
+                />
             </Box>
             <Box pt={2}>
                 <TextField name='tags' label="الكلمات المفتاحية" variant="outlined" fullWidth onKeyUp={(e) => {

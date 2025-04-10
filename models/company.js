@@ -6,6 +6,10 @@ const CompanySchema = new mongoose.Schema({
     required: [true, "Company name is required"],
     maxlength: [60, "Company name cannot be more than 60 characters"],
   },
+  tags: {
+    type: [String],
+    required: [true, "Company tags are required"],
+  }
 });
 
 export const Company = mongoose.models.Company || mongoose.model("Company", CompanySchema);

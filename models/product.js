@@ -28,10 +28,6 @@ const ProductSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
-  price: {
-    type: Number,
-    required: [true, 'Product price is required'],
-  },
   sellPrice: {
     type: Number,
     required: [true, 'Product pay price is required'],
