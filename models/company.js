@@ -9,6 +9,10 @@ const CompanySchema = new mongoose.Schema({
   tags: {
     type: [String],
     required: [true, "Company tags are required"],
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
   }
 });
 

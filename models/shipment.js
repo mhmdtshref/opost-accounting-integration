@@ -39,6 +39,10 @@ const ShipmentSchema = new mongoose.Schema({
   shipmentFees: {
     type: Number,
     required: [true, "Shipment fees are required"],
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
   }
 });
 

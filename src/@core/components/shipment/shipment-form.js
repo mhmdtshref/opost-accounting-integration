@@ -98,7 +98,7 @@ export const ShipmentForm = ({ shipment, action }) => {
             <Box>
                 <Box pt={2}>
                     <Box>
-                        <Typography variant="h6">Content</Typography>
+                        <Typography variant="h6">المحتويات</Typography>
                     </Box>
                     <Box pt={2}>
                         <Button variant="outlined" color="primary" onClick={() => setIsDialogOpen(true)}>

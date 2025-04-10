@@ -5,10 +5,18 @@ import { Product } from "../../../../models/product";
 export const GET = async (request) => {
 
     await dbConnect();
-    const { searchParams } = new URL(request.url);
-    const search = searchParams.get('search');
+    const searchParams = request.nextUrl.searchParams
+    const tags = searchParams.get('tags');
 
-    const products = await Product.find({ name: { $regex: search || '', $options: 'i' } });
+    const filter = {};
+
+    if (tags && tags.length) {
+        const tagsArray = tags.split(',');
+
+        filter.tags = { $all: tagsArray };
+    }
+    
+    const products = await Product.find(filter);
 
     return new Response(JSON.stringify({ products }), {
         headers: { 'Content-Type': 'application/json' },
