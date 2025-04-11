@@ -45,8 +45,8 @@ export const POST = async (request) => {
         const tags = [
             ...data.tags.map(tag => tag.toLowerCase()),
             ...company.tags,
-            name.toLowerCase(),
-            data.code.toLowerCase(),
+            company.name,
+            name,
         ];
 
         const globalConfig = await GlobalConfig.findOne({});

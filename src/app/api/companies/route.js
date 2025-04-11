@@ -1,5 +1,6 @@
 import { dbConnect } from "../../../../lib/db-connect";
 import { Company } from "../../../../models/company";
+import { GlobalConfig } from "../../../../models/global-config";
 
 export const GET = async () => {
 
@@ -26,6 +27,19 @@ export const POST = async (request) => {
         const body = await request.json();
 
         await dbConnect();
+
+        const globalConfig = await GlobalConfig.findOne({});
+        
+        if (globalConfig) {
+            const newGlobalTagsSet = new Set([
+                ...(globalConfig.tags || []),
+                body.name,
+                ...body.tags
+            ]);
+
+            globalConfig.tags = Array.from(newGlobalTagsSet);
+            await globalConfig.save();
+        }
 
         const company = new Company(body);
 
