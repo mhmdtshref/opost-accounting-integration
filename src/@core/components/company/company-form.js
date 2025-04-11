@@ -18,7 +18,7 @@ export const CompanyForm = ({ company, action }) => {
     }
 
     const handleAddTag = (value) => {
-        const preparedValue = value.trim().toLowerCase();
+        const preparedValue = value.trim();
 
         if (preparedValue === '' || formData.tags.includes(preparedValue)) {
             return
