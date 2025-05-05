@@ -1,15 +1,14 @@
-
 export const ShipmentStatuses = {
   PENDING: 'pending',
-  DONE: 'done',
-};
+  DONE: 'done'
+}
 
 export const ShipmentStatusLabels = {
   [ShipmentStatuses.PENDING]: 'قيد الانتظار',
-  [ShipmentStatuses.DONE]: 'مكتمل',
+  [ShipmentStatuses.DONE]: 'مكتمل'
 }
 
 export const ShipmentStatusColors = {
   [ShipmentStatuses.PENDING]: 'error',
-  [ShipmentStatuses.DONE]: 'success',
+  [ShipmentStatuses.DONE]: 'success'
 }

@@ -7,17 +7,11 @@ import UploadIcon from 'mdi-material-ui/Upload'
 import CancelIcon from 'mdi-material-ui/light/Cancel'
 import axios from 'axios'
 
-export const ImageUploader = ({
-  onBlur,
-  onChange,
-  value,
-  title,
-  name
-}) => {
+export const ImageUploader = ({ onBlur, onChange, value, title, name }) => {
   const [isLoading, setIsLoading] = useState(false)
   const theme = useTheme()
 
-  const onImageInputValueChange = async (event) => {
+  const onImageInputValueChange = async event => {
     // TODO: Validate file;
     // Upload file;
     try {
@@ -26,8 +20,8 @@ export const ImageUploader = ({
 
       if (!files?.length) {
         toast.error('فشل اختيار الصورة')
-        
-return
+
+        return
       }
 
       const formData = new FormData()
@@ -42,8 +36,8 @@ return
 
       if (!imageUrl) {
         toast.error('فشل رفع الصورة')
-        
-return
+
+        return
       }
 
       onChange(imageUrl)
